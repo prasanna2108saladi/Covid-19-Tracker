@@ -18,6 +18,8 @@
     {% if data %}
     <div class="mt-4">
         <h4>COVID-19 Stats for {{ data['country'] }}</h4>
+        <p><small>Last updated: {{ updated_time }}</small></p>
+
         <ul class="list-group">
             <li class="list-group-item">Total Cases: {{ data['cases'] }}</li>
             <li class="list-group-item">Today Cases: {{ data['todayCases'] }}</li>
@@ -31,5 +33,11 @@
     {% elif country %}
         <p class="text-danger mt-3">Data not found for "{{ country }}". Please check the country name.</p>
     {% endif %}
+    <script>
+  setTimeout(() => {
+    location.reload();
+  }, 300000); // 5 minutes
+</script>
+
 </body>
 </html>
